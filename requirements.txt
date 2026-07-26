@@ -5,3 +5,5 @@ chromadb
 sentence-transformers
 groq
 pypdf
+gunicorn
+
