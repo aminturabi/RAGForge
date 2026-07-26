@@ -66,8 +66,8 @@ Whether you need to swap vector databases from **ChromaDB** to **FAISS**, **Qdra
 
 ### 1. Clone Repository & Setup Virtual Environment
 ```bash
-git clone https://github.com/aminturabi/OpenRAG.git
-cd OpenRAG
+git clone https://github.com/aminturabi/RAGForge.git
+cd RAGForge
 
 python -m venv venv
 # Windows:
@@ -111,6 +111,13 @@ print(response["answer"])
 python app.py
 ```
 Navigate to `http://127.0.0.1:5000` to access the glassmorphic web dashboard!
+
+### 3. REST API Endpoints
+- `POST /api/upload`: Upload and index a document (`.pdf`, `.txt`, `.csv`, `.md`, `.html`).
+- `POST /api/query`: Query an indexed document collection with top-K vector search and Groq LLM completion.
+- `GET /api/collections`: List all active collections in vector store.
+- `POST /api/clear`: Delete a collection from vector store.
+- `GET /api/plugins`: Inspect registered plugin capabilities by category.
 
 ---
 

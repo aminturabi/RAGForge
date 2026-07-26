@@ -1,6 +1,7 @@
 from core.contracts import VectorStoreBackend
-from core.registry import register_plugin, create_plugin, list_plugins
+from core.registry import register_plugin, create_plugin, list_plugins, list_all_plugins
 from core.exceptions import PluginNotFoundError
+from api.app_factory import create_app
 
 
 @register_plugin("vectorstores", "test_mock_store")
@@ -37,3 +38,24 @@ def test_plugin_not_found_raises_exception():
         assert False, "Should have raised PluginNotFoundError"
     except PluginNotFoundError:
         assert True
+
+
+def test_list_all_plugins():
+    all_plugins = list_all_plugins()
+    assert isinstance(all_plugins, dict)
+    assert "vectorstores" in all_plugins
+    assert "test_mock_store" in all_plugins["vectorstores"]
+
+
+def test_api_plugins_endpoint():
+    app = create_app()
+    app.config["TESTING"] = True
+    client = app.test_client()
+
+    response = client.get("/api/plugins")
+    assert response.status_code == 200
+    data = response.get_json()
+    assert data["success"] is True
+    assert "plugins" in data
+    assert "vectorstores" in data["plugins"]
+

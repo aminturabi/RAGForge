@@ -30,3 +30,9 @@ def list_plugins(category: str) -> list[str]:
     """List plugin names in a category."""
     return sorted(_REGISTRY.get(category, {}).keys())
 
+
+def list_all_plugins() -> dict[str, list[str]]:
+    """List all registered plugins grouped by category."""
+    return {category: sorted(plugins.keys()) for category, plugins in sorted(_REGISTRY.items())}
+
+

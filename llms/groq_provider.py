@@ -10,7 +10,7 @@ from core.registry import register_plugin
 
 @register_plugin("llms", "groq")
 class GroqLLMProvider(LLMProvider):
-    def __init__(self, model_name: str = "openai/gpt-oss-120b", api_key: str | None = None) -> None:
+    def __init__(self, model_name: str = "llama-3.3-70b-versatile", api_key: str | None = None) -> None:
         self.model_name = model_name
         self.api_key = api_key
 

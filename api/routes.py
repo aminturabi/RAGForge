@@ -6,6 +6,7 @@ import uuid
 from flask import Blueprint, current_app, jsonify, request
 
 from core.exceptions import DocumentLoadError
+from core.registry import list_all_plugins
 
 api_bp = Blueprint("api", __name__, url_prefix="/api")
 
@@ -94,3 +95,12 @@ def clear_collection():
         return jsonify({"success": False, "error": "Collection not found or could not be deleted."}), 404
     except Exception as error:
         return jsonify({"success": False, "error": str(error)}), 500
+
+
+@api_bp.route("/plugins", methods=["GET"])
+def get_plugins():
+    try:
+        return jsonify({"success": True, "plugins": list_all_plugins()})
+    except Exception as error:
+        return jsonify({"success": False, "error": str(error)}), 500
+
