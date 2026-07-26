@@ -188,7 +188,23 @@ Run any of the provided example scripts under `examples/`:
 
 ---
 
+## 🤝 Contributing
+
+Contributions are welcome!
+
+Check out the [Good First Issues](docs/GOOD_FIRST_ISSUES.md) to get started.
+
+- Report bugs
+- Suggest features
+- Improve documentation
+- Submit pull requests
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+---
+
 ## 📜 License
 
 Distributed under the [MIT License](LICENSE).
+
 
