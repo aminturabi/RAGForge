@@ -1,4 +1,15 @@
+---
+title: RAGForge
+emoji: ⚡
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+short_description: A Production-Grade, Highly Modular RAG Framework
+---
+
 <div align="center">
+
 
 # ⚡ RAGForge
 
