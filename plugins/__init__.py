@@ -14,11 +14,14 @@ def discover_plugins() -> None:
     packages = [
         "chunking.recursive_character",
         "loaders.document_loader",
+        "loaders.docx_loader",
         "embeddings.sentence_transformer",
         "vectorstores.chroma_store",
         "retrievers.vector_retriever",
+        "retrievers.hybrid_retriever",
         "rerankers.noop_reranker",
         "llms.groq_provider",
+        "llms.ollama_provider",
         "formatters.json_formatter",
     ]
     for module_name in packages:

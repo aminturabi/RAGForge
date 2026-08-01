@@ -10,6 +10,7 @@ from loaders.text_loader import TextLoader
 from loaders.csv_loader import CSVLoader
 from loaders.markdown_loader import MarkdownLoader
 from loaders.web_loader import WebLoader
+from loaders.docx_loader import DOCXLoader
 
 
 @register_plugin("loaders", "composite")
@@ -22,6 +23,7 @@ class CompositeDocumentLoader(DocumentLoader):
         self._csv_loader = CSVLoader()
         self._markdown_loader = MarkdownLoader()
         self._web_loader = WebLoader()
+        self._docx_loader = DOCXLoader()
 
     def load(self, file_path: str) -> str:
         if not os.path.exists(file_path):
@@ -30,6 +32,8 @@ class CompositeDocumentLoader(DocumentLoader):
         _, ext = os.path.splitext(file_path.lower())
         if ext == ".pdf":
             return self._pdf_loader.load(file_path)
+        elif ext == ".docx":
+            return self._docx_loader.load(file_path)
         elif ext == ".csv":
             return self._csv_loader.load(file_path)
         elif ext == ".md":
